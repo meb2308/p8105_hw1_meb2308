@@ -1,23 +1,25 @@
 ---
-title: "HW 1 R Markdown"
+title: "HW 1"
 author: Meghan Bellerose
 date: September 15, 2020
 output: github_document
 ---
 
-HW 1 R Markdown document 
-
-# Section 1
-
-Here's a **code chunk** that samples from 
-a _normal distribution_:
+HW 1 Solutions 
 
 ```{r}
-samp = rnorm(100)
-length(samp)
+library(tidyverse)
+
 ```
 
-# Section 2
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
+## Problem 1
+
+Create a data frame with the elements specified in problem 1.
+
+```{r}
+
+
+```
+
+## Problem 2
