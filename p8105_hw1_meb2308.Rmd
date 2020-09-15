@@ -83,7 +83,8 @@ Load penguins dataset package.
 data("penguins", package = "palmerpenguins")
 ```
 
-The penguins dataset has eight variables: species, island, bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. 
+
+The penguins dataset has eight variables: species, island, bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. Three species of penguins were included: Adelie, Chinstrap, and Gentoo. The mean bill length is `r mean(bill_length_mm)` and the mean flipper length is `r mean(flipper_length_mm)`. 
 
 The data frame has `r nrow(penguins)` rows and ` r ncol(penguins)` columns.
 
@@ -98,5 +99,3 @@ Save the penguins plot!
 ```{r save_plot, warning=FALSE}
 ggsave("penguins_scatter_plot.pdf", height = 4, width = 6)
 ```
-
-
