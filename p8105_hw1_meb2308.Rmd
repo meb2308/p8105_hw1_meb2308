@@ -22,6 +22,7 @@ prob1_df =
   tibble(
     samp = rnorm(10),
     samp_gt_0 = samp > 0,
+    char_vec = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
     factor_vec = factor(c("low", "low", "low", "mod", "mod", "mod", "mod", "high", "high", "high"))
 )
 
@@ -37,5 +38,16 @@ mean(pull(prob1_df, factor_vec))
 ```
 
 We can take the mean of numbers and logical vectors, but not character or factor vectors.
+
+```{r}
+as.numeric(pull(prob1_df, samp))
+as.numeric(pull(prob1_df, samp_gt_0))
+as.numeric(pull(prob1_df, char_vec))
+as.numeric(pull(prob1_df, factor_vec))
+```
+
+```{r}
+as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+```
 
 ## Problem 2
