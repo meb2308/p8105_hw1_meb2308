@@ -1,13 +1,13 @@
 ---
 title: "HW 1"
-author: Meghan Bellerose
+author: Meghan Bellerose,
 date: September 15, 2020
 output: github_document
 ---
 
 HW 1 Solutions 
 
-```{r}
+```{r library, message = FALSE}
 library(tidyverse)
 
 ```
@@ -15,7 +15,14 @@ library(tidyverse)
 
 ## Problem 1
 
-Create a data frame with the elements specified in problem 1: a random sample of size 10 from a standard Normal distribution, a logical vector indicating whether elements of the sample are greater than 0, a character vector of length 10, and a factor vector of length 10 with 3 factor levels.
+#### Create data frame
+
+Create a data frame with the elements specified in problem 1: 
+
+* A random sample of size 10 from a standard Normal distribution
+* A logical vector indicating whether elements of the sample are greater than 0
+* A character vector of length 10
+* A factor vector of length 10 with 3 factor levels
 
 ```{r create_df}
 prob1_df = 
@@ -28,6 +35,8 @@ prob1_df =
 
 ```
 
+#### Take means
+
 Take the mean of each variable in the data frame.
 
 ```{r mean_pull_r}
@@ -39,12 +48,24 @@ mean(pull(prob1_df, factor_vec))
 
 We can take the mean of numbers and logical vectors, but not character or factor vectors.
 
+#### Convert variables from one type to another
+
+Convert the logical, character, and factor vectors to numeric.
+
 ```{r try_numeric}
 as.numeric(pull(prob1_df, samp))
 as.numeric(pull(prob1_df, samp_gt_0))
 as.numeric(pull(prob1_df, char_vec))
 as.numeric(pull(prob1_df, factor_vec))
 ```
+
+When converted to numeric, the logical vector is reported as false = 0, true = 1, which explains why it generated a mean.
+
+Convert the logical vector:
+
+* To numeric and multiply the random sample by the result
+* To a factor and multiply the random sample by the result
+* To a factor and then convert the result to numeric and multiply the random sample by the result
 
 ```{r convert_types}
 as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
