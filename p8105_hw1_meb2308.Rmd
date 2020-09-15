@@ -75,7 +75,7 @@ as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
 
 ## Problem 2
 
-#### Penguins
+#### Penguins dataset and size scatterplot
 
 Load penguins dataset package.
 
@@ -85,14 +85,18 @@ data("penguins", package = "palmerpenguins")
 
 The penguins dataset has eight variables: species, island, bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. 
 
-```{r penguin_df, message=FALSE}
-penguins_df = tibble(
-  x = bill_length_mm
-  y = flipper_length_mm
-)
+The data frame has `r nrow(penguins)` rows and ` r ncol(penguins)` columns.
+
+Create scatter plot of penguin flipper length by bill length. 
+
+```{r penguins_scatter_plot, warning=FALSE}
+ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm)) + geom_point(aes(color = species)) + labs(title = "Penguin bill and flipper length by species", x = "Bill length (mm)", y = "Flipper length (mm)", color = "Penguin species") 
 ```
 
-The mean bill length is `r mean(bill_length_mm)` mm.
+Save the penguins plot!
 
-The data frame has `r nrow(penguins)` rows and ` r ncol(penguins)` columns.
+```{r save_plot, warning=FALSE}
+ggsave("penguins_scatter_plot.pdf", height = 4, width = 6)
+```
+
 
