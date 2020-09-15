@@ -75,3 +75,24 @@ as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
 
 ## Problem 2
 
+#### Penguins
+
+Load penguins dataset package.
+
+```{r load_penguins}
+data("penguins", package = "palmerpenguins")
+```
+
+The penguins dataset has eight variables: species, island, bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. 
+
+```{r penguin_df, message=FALSE}
+penguins_df = tibble(
+  x = bill_length_mm
+  y = flipper_length_mm
+)
+```
+
+The mean bill length is `r mean(bill_length_mm)` mm.
+
+The data frame has `r nrow(penguins)` rows and ` r ncol(penguins)` columns.
+
