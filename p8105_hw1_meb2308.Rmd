@@ -1,7 +1,7 @@
 ---
 title: "HW 1 R Markdown"
 author: Meghan Bellerose
-date: September 10, 2020
+date: September 15, 2020
 output: github_document
 ---
 
