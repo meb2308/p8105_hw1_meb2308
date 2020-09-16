@@ -84,9 +84,9 @@ data("penguins", package = "palmerpenguins")
 ```
 
 
-The penguins dataset has eight variables: species, island, bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. Three species of penguins were included: Adelie, Chinstrap, and Gentoo. The mean bill length is `r mean(bill_length_mm)` and the mean flipper length is `r mean(flipper_length_mm)`. 
+The penguins dataset has eight variables: species, island, bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. Three species of penguins were included: Adelie, Chinstrap, and Gentoo. The mean bill length is `r mean(penguins$bill_length_mm)` mm, the mean flipper length is `r mean(penguins$flipper_length_mm)`mm, and the mean body mass is `r mean(penguins$body_mass_g)` g.
 
-The data frame has `r nrow(penguins)` rows and ` r ncol(penguins)` columns.
+The data frame has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
 
 Create scatter plot of penguin flipper length by bill length. 
 
