@@ -81,7 +81,7 @@ Load penguins dataset package.
 data("penguins", package = "palmerpenguins")
 ```
 
-The penguins dataset has eight variables: species, island, bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. Three species of penguins were included: Adelie, Chinstrap, and Gentoo. The penaguin's mean flipper length is `r mean(penguins$flipper_length_mm)` mm and the mean body mass is `r mean(penguins$body_mass_g)` g.
+The penguins dataset has eight variables: species, island, bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. Three species of penguins were included: Adelie, Chinstrap, and Gentoo. The penguin's mean bill length is `r round(mean(penguins$bill_length_mm, na.rm=TRUE), 1)` and mean flipper length is `r round(mean(penguins$flipper_length_mm, na.rm=TRUE), 1)` mm. The penguin's mean body mass is `r round(mean(penguins$body_mass_g, na.rm=TRUE), 1)` g.
 
 The data frame has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
 
