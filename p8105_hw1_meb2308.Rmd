@@ -5,8 +5,6 @@ date: September 15, 2020
 output: github_document
 ---
 
-HW 1 Solutions 
-
 ```{r library, message = FALSE}
 library(tidyverse)
 
@@ -17,7 +15,7 @@ library(tidyverse)
 
 #### Create data frame
 
-Create a data frame with the elements specified in problem 1: 
+Create a data frame with the following elements: 
 
 * A random sample of size 10 from a standard Normal distribution
 * A logical vector indicating whether elements of the sample are greater than 0
@@ -70,7 +68,7 @@ Convert the logical vector:
 ```{r convert_types}
 as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
 as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
-as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp) * pull(prob1_df, samp)
 ```
 
 ## Problem 2
@@ -83,12 +81,11 @@ Load penguins dataset package.
 data("penguins", package = "palmerpenguins")
 ```
 
-
-The penguins dataset has eight variables: species, island, bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. Three species of penguins were included: Adelie, Chinstrap, and Gentoo. The mean bill length is `r mean(penguins$bill_length_mm)` mm, the mean flipper length is `r mean(penguins$flipper_length_mm)`mm, and the mean body mass is `r mean(penguins$body_mass_g)` g.
+The penguins dataset has eight variables: species, island, bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. Three species of penguins were included: Adelie, Chinstrap, and Gentoo. The penaguin's mean flipper length is `r mean(penguins$flipper_length_mm)` mm and the mean body mass is `r mean(penguins$body_mass_g)` g.
 
 The data frame has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
 
-Create scatter plot of penguin flipper length by bill length. 
+Create a scatter plot of penguin flipper length by bill length. 
 
 ```{r penguins_scatter_plot, warning=FALSE}
 ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm)) + geom_point(aes(color = species)) + labs(title = "Penguin bill and flipper length by species", x = "Bill length (mm)", y = "Flipper length (mm)", color = "Penguin species") 
