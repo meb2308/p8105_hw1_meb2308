@@ -75,13 +75,13 @@ as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp) * pull(prob1_df, sam
 
 #### Penguins dataset and size scatterplot
 
-Load penguins dataset package.
+Load the penguins dataset package.
 
 ```{r load_penguins}
 data("penguins", package = "palmerpenguins")
 ```
 
-The penguins dataset has eight variables: species, island, bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. Three species of penguins were included: Adelie, Chinstrap, and Gentoo. The penguin's mean bill length is `r round(mean(penguins$bill_length_mm, na.rm=TRUE), 1)` and mean flipper length is `r round(mean(penguins$flipper_length_mm, na.rm=TRUE), 1)` mm. The penguin's mean body mass is `r round(mean(penguins$body_mass_g, na.rm=TRUE), 1)` g.
+The penguins dataset has eight variables: `r names(penguins)`. Three species of penguins were included: Adelie, Chinstrap, and Gentoo. The penguin's mean bill length is `r round(mean(penguins$bill_length_mm, na.rm=TRUE), 1)` and mean flipper length is `r round(mean(penguins$flipper_length_mm, na.rm=TRUE), 1)` mm. The penguin's mean body mass is `r round(mean(penguins$body_mass_g, na.rm=TRUE), 1)` g.
 
 The data frame has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
 
