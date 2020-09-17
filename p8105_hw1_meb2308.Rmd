@@ -1,9 +1,11 @@
 ---
 title: "HW 1"
 author: Meghan Bellerose,
-date: September 15, 2020
+date: September 16, 2020
 output: github_document
 ---
+
+Solutions to P8105 homework 1.
 
 ```{r library, message = FALSE}
 library(tidyverse)
@@ -15,7 +17,7 @@ library(tidyverse)
 
 #### Create data frame
 
-Create a data frame with the following elements: 
+I created a data frame with the following elements: 
 
 * A random sample of size 10 from a standard Normal distribution
 * A logical vector indicating whether elements of the sample are greater than 0
@@ -35,7 +37,7 @@ prob1_df =
 
 #### Take means
 
-Take the mean of each variable in the data frame.
+I took the mean of each variable in the data frame.
 
 ```{r mean_pull_r}
 mean(pull(prob1_df, samp))
@@ -48,7 +50,7 @@ We can take the mean of numbers and logical vectors, but not character or factor
 
 #### Convert variables from one type to another
 
-Convert the logical, character, and factor vectors to numeric.
+I converted the logical, character, and factor vectors to numeric.
 
 ```{r try_numeric}
 as.numeric(pull(prob1_df, samp))
@@ -59,7 +61,7 @@ as.numeric(pull(prob1_df, factor_vec))
 
 When converted to numeric, the logical vector is reported as false = 0, true = 1, which explains why it generated a mean.
 
-Convert the logical vector:
+I then convert the logical vector in the following ways:
 
 * To numeric and multiply the random sample by the result
 * To a factor and multiply the random sample by the result
@@ -75,23 +77,27 @@ as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp) * pull(prob1_df, sam
 
 #### Penguins dataset and size scatterplot
 
-Load the penguins dataset package.
+I loaded the penguins dataset package.
 
 ```{r load_penguins}
 data("penguins", package = "palmerpenguins")
 ```
 
-The penguins dataset has eight variables: `r names(penguins)`. Three species of penguins were included: Adelie, Chinstrap, and Gentoo. The penguin's mean bill length is `r round(mean(penguins$bill_length_mm, na.rm=TRUE), 1)` and mean flipper length is `r round(mean(penguins$flipper_length_mm, na.rm=TRUE), 1)` mm. The penguin's mean body mass is `r round(mean(penguins$body_mass_g, na.rm=TRUE), 1)` g.
+The penguins dataset has eight variables: `r names(penguins)`. The data frame has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
 
-The data frame has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
+Data were collected on three species of penguins: `r levels(penguins$species)` living on the following three islands: `r levels(penguins$island)`. 
 
-Create a scatter plot of penguin flipper length by bill length. 
+The penguin's mean bill length is `r round(mean(penguins$bill_length_mm, na.rm=TRUE), 1)` and mean flipper length is `r round(mean(penguins$flipper_length_mm, na.rm=TRUE), 1)` mm. The penguin's mean body mass is `r round(mean(penguins$body_mass_g, na.rm=TRUE), 1)` g.
+
+
+
+Here is a scatter plot of penguin flipper length by bill length: 
 
 ```{r penguins_scatter_plot, warning=FALSE}
 ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm)) + geom_point(aes(color = species)) + labs(title = "Penguin bill and flipper length by species", x = "Bill length (mm)", y = "Flipper length (mm)", color = "Penguin species") 
 ```
 
-Save the penguins plot!
+Finally, I saved the penguins plot!
 
 ```{r save_plot, warning=FALSE}
 ggsave("penguins_scatter_plot.pdf", height = 4, width = 6)
